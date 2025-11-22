@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 5, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/anujn/OneDrive/Desktop/MajorProject/StudyNotion/frontend/app/components/cores/SingleCoursePage/TakeClient.tsx"],"sourcesContent":["\"use client\"\r\nimport React from 'react'\r\n\r\nconst Take = () => {\r\n    return (\r\n        <div>Take</div>\r\n    )\r\n}\r\n\r\nexport default Take;"],"names":[],"mappings":";;;;AAAA;;AAGA,MAAM,OAAO;IACT,qBACI,8OAAC;kBAAI;;;;;;AAEb;uCAEe","debugId":null}}]
+}

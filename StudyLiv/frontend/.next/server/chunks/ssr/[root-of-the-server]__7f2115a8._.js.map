@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/anujn/OneDrive/Desktop/MajorProject/StudyLiv/frontend/app/dashboard/page.tsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst Dashboard = () => {\r\n    return (\r\n        <div className='w-full h-full'>\r\n            Dashboard\r\n        </div>\r\n    )\r\n}\r\n\r\nexport default Dashboard;"],"names":[],"mappings":";;;;;AAEA,MAAM,YAAY;IACd,qBACI,8OAAC;QAAI,WAAU;kBAAgB;;;;;;AAIvC;uCAEe","debugId":null}}]
+}

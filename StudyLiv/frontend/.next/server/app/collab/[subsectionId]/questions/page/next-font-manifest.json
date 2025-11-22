@@ -1,0 +1,12 @@
+{
+  "pages": {},
+  "app": {
+    "[project]/app/collab/[subsectionId]/questions/page": [
+      "static/media/06ba6ef833b337bc-s.p.0faac26c.woff2",
+      "static/media/ac4b394ed0d99c20-s.p.f7723675.woff2",
+      "static/media/e1f2500ad7d6d5bb-s.p.d7db71b1.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pagesUsingSizeAdjust": false
+}

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/anujn/OneDrive/Desktop/MajorProject/StudyNotion/frontend/app/course/%5Bid%5D/take/layout.tsx"],"sourcesContent":["\"use client\"\r\nimport NavBar from \"@/app/components/common/NavBar\";\r\nimport Reviews from \"@/app/components/common/Reviews\";\r\n\r\n\r\n\r\nexport default function TakeLayout({\r\n    children,\r\n}: Readonly<{\r\n    children: React.ReactNode;\r\n}>) {\r\n    return (\r\n        <body\r\n        className={`antialiased w-screen relative overflow-x-hidden h-full font-sans`}\r\n        >\r\n            <NavBar/>\r\n            {children}\r\n            <Reviews/>\r\n        </body>\r\n    );\r\n}\r\n"],"names":[],"mappings":";;;;AACA;AACA;AAFA;;;;AAMe,SAAS,WAAW,KAIjC;QAJiC,EAC/B,QAAQ,EAGV,GAJiC;IAK/B,qBACI,6LAAC;QACD,WAAY;;0BAER,6LAAC,yIAAA,CAAA,UAAM;;;;;YACN;0BACD,6LAAC,0IAAA,CAAA,UAAO;;;;;;;;;;;AAGpB;KAdwB","debugId":null}}]
+}

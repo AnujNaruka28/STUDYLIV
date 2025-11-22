@@ -1,0 +1,29 @@
+/* [next]/internal/font/google/edu_sa_beginner_654a5338.module.css [app-client] (css) */
+@font-face {
+  font-family: Edu SA Beginner;
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../media/e1f2500ad7d6d5bb-s.p.d7db71b1.woff2") format("woff2");
+  unicode-range: U+??, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Edu SA Beginner Fallback;
+  src: local(Arial);
+  ascent-override: 124.78%;
+  descent-override: 29.97%;
+  line-gap-override: 0.0%;
+  size-adjust: 81.43%;
+}
+
+.edu_sa_beginner_654a5338-module__M3njQW__className {
+  font-family: Edu SA Beginner, Edu SA Beginner Fallback;
+  font-style: normal;
+}
+
+.edu_sa_beginner_654a5338-module__M3njQW__variable {
+  --font-edu-sa-beginner: "Edu SA Beginner", "Edu SA Beginner Fallback";
+}
+
+/*# sourceMappingURL=%5Bnext%5D_internal_font_google_edu_sa_beginner_654a5338_module_css_e59ae46c._.single.css.map*/

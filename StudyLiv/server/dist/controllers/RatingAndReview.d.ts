@@ -1,0 +1,6 @@
+import { Request, Response } from "express";
+export declare const createRatingAndReview: (req: Request, res: Response) => Promise<Response<import("../utils/response").ApiResponse<null>, Record<string, any>> | Response<import("../utils/response").ApiResponse<import("../models/RatingAndReview").IRatingAndReview>, Record<string, any>>>;
+export declare const getAvgRating: (req: Request, res: Response) => Promise<Response<import("../utils/response").ApiResponse<null>, Record<string, any>> | Response<import("../utils/response").ApiResponse<number>, Record<string, any>>>;
+export declare const allRatings: (_req: Request, res: Response) => Promise<Response<import("../utils/response").ApiResponse<null>, Record<string, any>> | Response<import("../utils/response").ApiResponse<import("../models/RatingAndReview").IRatingAndReview[]>, Record<string, any>>>;
+export declare const courseRatings: (req: Request, res: Response) => Promise<Response<import("../utils/response").ApiResponse<null>, Record<string, any>> | Response<import("../utils/response").ApiResponse<import("../models/RatingAndReview").IRatingAndReview[]>, Record<string, any>>>;
+//# sourceMappingURL=RatingAndReview.d.ts.map

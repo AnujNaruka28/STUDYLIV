@@ -1,0 +1,1 @@
+{"version":3,"file":"courseprogress.validation.js","sourceRoot":"","sources":["../../src/validations/courseprogress.validation.ts"],"names":[],"mappings":";;;AAAA,6BAAwB;AAEX,QAAA,uBAAuB,GAAG,OAAC,CAAC,MAAM,CAAC;IAC5C,QAAQ,EAAE,OAAC,CAAC,MAAM,EAAE,CAAC,GAAG,CAAC,CAAC,EAAE,uBAAuB,CAAC;IACpD,QAAQ,EAAE,OAAC,CAAC,KAAK,CAAC,OAAC,CAAC,MAAM,EAAE,CAAC,CAAC,QAAQ,EAAE;CAC3C,CAAC,CAAC"}
