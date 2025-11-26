@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 13, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/anujn/OneDrive/Desktop/MajorProject/StudyNotion/frontend/app/page.tsx"],"sourcesContent":["\"use client\"\n\nimport HeroSection from \"./components/cores/HomePage/HeroSection\";\n\nexport default function Home() {\n  return (\n    <div className=\" w-full h-full\">\n      <HeroSection/>\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;AAEA;AAFA;;;AAIe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC,sJAAA,CAAA,UAAW;;;;;;;;;;AAGlB","debugId":null}}]
-}
