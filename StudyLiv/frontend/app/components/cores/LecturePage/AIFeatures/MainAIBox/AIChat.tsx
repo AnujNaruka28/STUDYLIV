@@ -10,7 +10,7 @@ const AIChat = () => {
             {/* Header */}
             <div className="p-4 border-b border-[var(--richblack-800)] flex items-center gap-2">
                 <IoSparkles className="text-[#47A5C5] w-5 h-5" />
-                <h2 className="text-[var(--richblack-5)] font-medium">Gemini AI Chat</h2>
+                <h2 className="text-[var(--richblack-5)] font-medium">AI Chat</h2>
             </div>
 
             {/* Chat Messages Placeholder */}
