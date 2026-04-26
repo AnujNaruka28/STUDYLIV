@@ -1,6 +1,9 @@
-"use client"
-import React from 'react'
-import { IoChatbubbleEllipsesOutline, IoDocumentTextOutline, IoAnalyticsOutline, IoCreateOutline, IoLayersOutline } from "react-icons/io5";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/app/components/ui/dropdown-menu";
+import { IoChatbubbleEllipsesOutline, IoDocumentTextOutline, IoAnalyticsOutline, IoCreateOutline, IoLayersOutline, IoLanguageOutline } from "react-icons/io5";
+
+import { useLanguage } from "@/lib/context/LanguageContext";
+
+import { LANGUAGES } from "@/lib/constants/languages";
 
 interface AIOptionsProps {
     selectedOption: string;
@@ -8,6 +11,7 @@ interface AIOptionsProps {
 }
 
 const AIOptions: React.FC<AIOptionsProps> = ({ selectedOption, setSelectedOption }) => {
+    const { locale, setLocale } = useLanguage();
     const options = [
         { id: 'chat', label: 'AI Chat', icon: <IoChatbubbleEllipsesOutline className="w-5 h-5" /> },
         { id: 'transcript', label: 'Transcript', icon: <IoDocumentTextOutline className="w-5 h-5" /> },
@@ -18,7 +22,34 @@ const AIOptions: React.FC<AIOptionsProps> = ({ selectedOption, setSelectedOption
 
     return (
         <div className="w-full h-full bg-[var(--richblack-900)] border-r border-[var(--richblack-800)] flex flex-col p-4 gap-2">
-            <h3 className="text-[var(--richblack-5)] font-semibold text-lg mb-4 px-2 tracking-tight">AI Assistant</h3>
+            <div className="flex items-center justify-between mb-4 px-2">
+                <h3 className="text-[var(--richblack-5)] font-semibold text-lg tracking-tight">AI Assistant</h3>
+                <DropdownMenu>
+                    <DropdownMenuTrigger className="cursor-pointer outline-none">
+                        <div className="flex items-center gap-1 text-[var(--richblack-300)] hover:text-[var(--richblack-50)] transition-colors">
+                            <IoLanguageOutline className="w-5 h-5 hover:rotate-12 transition-transform duration-300" />
+                            <span className="text-xs font-medium uppercase tracking-wider">{locale.slice(0, 3)}</span>
+                        </div>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="border rounded-[8px] p-2 bg-[var(--richblack-800)] border-[var(--richblack-700)] shadow-xl min-w-[120px]">
+                        {LANGUAGES.map((lang) => (
+                            <DropdownMenuItem
+                                key={lang}
+                                onClick={() => setLocale(lang)}
+                                className={`
+                                    py-2 px-3 flex gap-3 cursor-pointer rounded-md transition-all duration-200
+                                    ${locale === lang ? 'bg-[var(--richblack-700)] text-[var(--yellow-50)]' : 'text-[var(--richblack-100)] hover:bg-[var(--richblack-700)]'}
+                                `}
+                            >
+                                <p className="text-sm font-medium">
+                                    {lang}
+                                </p>
+                            </DropdownMenuItem>
+                        ))}
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            </div>
+
             <div className="flex flex-col gap-1.5">
                 {options.map((option) => (
                     <button

@@ -48,7 +48,13 @@ const FlashCardItem = ({ card }: { card: FlashCard }) => {
     );
 };
 
-const FlashCards = () => {
+import { useLanguage } from '@/lib/context/LanguageContext';
+
+interface FlashCardsProps {
+}
+
+const FlashCards: React.FC<FlashCardsProps> = () => {
+    const { locale } = useLanguage();
     const { transcript } = useLecture();
     const [numCards, setNumCards] = useState(10);
     const [view, setView] = useState<ViewState>('input');
@@ -72,7 +78,7 @@ const FlashCards = () => {
         setView('generating');
 
         try {
-            const result = await featureApi.getFlashCards(transcript.text || JSON.stringify(transcript), numCards);
+            const result = await featureApi.getFlashCards(transcript.text || JSON.stringify(transcript), numCards, locale);
 
             if (result.error) throw new Error(result.error);
 

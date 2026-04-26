@@ -7,7 +7,13 @@ import { useLecture } from '@/lib/context/LectureContext';
 import { featureApi } from '@/lib/AIFeaturesAPI';
 import MarkdownRenderer from '@/app/components/common/MarkdownRenderer';
 
-const Summarize = () => {
+import { useLanguage } from '@/lib/context/LanguageContext';
+
+interface SummarizeProps {
+}
+
+const Summarize: React.FC<SummarizeProps> = () => {
+    const { locale } = useLanguage();
     const { transcript } = useLecture();
     const [summary, setSummary] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
@@ -21,7 +27,7 @@ const Summarize = () => {
         setLoading(true);
         setError(null);
         try {
-            const result = await featureApi.getSummary(transcript.text || JSON.stringify(transcript));
+            const result = await featureApi.getSummary(transcript.text || JSON.stringify(transcript), locale);
             if (result.error) throw new Error(result.error);
             setSummary(result.data ?? "");
         } catch (err: any) {

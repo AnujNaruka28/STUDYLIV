@@ -7,6 +7,8 @@ import Summarize from '../Features/Summarize'
 import Notes from '../Features/Notes'
 import FlashCards from '../Features/FlashCards'
 
+import { LanguageProvider } from '@/lib/context/LanguageContext';
+
 const AIBox = () => {
     const [selectedOption, setSelectedOption] = useState("chat");
 
@@ -28,17 +30,22 @@ const AIBox = () => {
     }
 
     return (
-        <div className="w-full h-full flex bg-[var(--richblack-900)] overflow-hidden rounded-xl border border-[var(--richblack-800)] shadow-2xl">
-            {/* Left Sidebar - 25% */}
-            <div className="w-1/4 min-w-[200px] h-full">
-                <AIOptions selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
-            </div>
+        <LanguageProvider>
+            <div className="w-full h-full flex bg-[var(--richblack-900)] overflow-hidden rounded-xl border border-[var(--richblack-800)] shadow-2xl">
+                {/* Left Sidebar - 25% */}
+                <div className="w-1/4 min-w-[200px] h-full">
+                    <AIOptions 
+                        selectedOption={selectedOption} 
+                        setSelectedOption={setSelectedOption}
+                    />
+                </div>
 
-            {/* Right Content - 75% */}
-            <div className="flex-1 h-full overflow-hidden">
-                {renderFeature()}
+                {/* Right Content - 75% */}
+                <div className="flex-1 h-full overflow-hidden">
+                    {renderFeature()}
+                </div>
             </div>
-        </div>
+        </LanguageProvider>
     )
 }
 

@@ -28,31 +28,52 @@ class AIFeaturesAPI {
         }
     }
 
-    async getTranscript(audioUrl: string) {
+    async getTranscript(audioUrl: string, locale: string) {
         return this.request<any>("api/transcribe", {
             method: "POST",
-            body: JSON.stringify({ audioUrl }),
+            body: JSON.stringify({ audioUrl, locale }),
         });
     }
 
-    async getSummary(transcript: string) {
+    async getSummary(transcript: string, locale: string) {
         return this.request<string>("api/ai/feature?feature=summarize", {
             method: "POST",
-            body: JSON.stringify({ transcript }),
+            body: JSON.stringify({ transcript, locale }),
         });
     }
 
-    async getNotes(transcript: string) {
+    async getNotes(transcript: string, locale: string) {
         return this.request<string>("api/ai/feature?feature=notes", {
             method: "POST",
-            body: JSON.stringify({ transcript }),
+            body: JSON.stringify({ transcript, locale }),
         });
     }
 
-    async getFlashCards(transcript: string, count: number) {
+    async getFlashCards(transcript: string, count: number, locale: string) {
         return this.request<any>("api/ai/feature?feature=flashcards", {
             method: "POST",
-            body: JSON.stringify({ transcript, count }),
+            body: JSON.stringify({ transcript, count, locale }),
+        });
+    }
+
+    async getAIChat(message: string, transcript: string, locale: string) {
+        return this.request<any>("api/ai/feature?feature=chat", {
+            method: "POST",
+            body: JSON.stringify({ message, transcript, locale }),
+        });
+    }
+
+    async getGreeting(locale: string) {
+        return this.request<any>("api/ai/feature?feature=greeting", {
+            method: "POST",
+            body: JSON.stringify({ locale }),
+        });
+    }
+
+    async translateText(text: string, locale: string) {
+        return this.request<any>("api/ai/feature?feature=translate", {
+            method: "POST",
+            body: JSON.stringify({ transcript: text, locale }),
         });
     }
 }

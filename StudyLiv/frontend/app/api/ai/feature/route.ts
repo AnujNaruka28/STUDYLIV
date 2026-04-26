@@ -16,17 +16,33 @@ export async function POST(req: NextRequest) {
     }
 
     try {
-        const { transcript, count } = await req.json();
+        const { transcript, count, message, locale = "English" } = await req.json();
 
-        if (!transcript) {
+        if (!transcript && feature !== "chat" && feature !== "greeting") {
             return NextResponse.json({ error: "Transcript is required" }, { status: 400 });
         }
 
-        const prompt = PROMPTS[feature as keyof typeof PROMPTS](transcript, count);
+        let promptText = "";
+        if (feature === "chat") {
+            promptText = PROMPTS.chat(message || "", transcript || "");
+        } else if (feature === "greeting") {
+            promptText = PROMPTS.greeting();
+        } else if (feature === "translate") {
+            promptText = PROMPTS.translate(transcript || "", locale);
+        } else if (feature === "flashcards") {
+            promptText = PROMPTS.flashcards(transcript, count);
+        } else if (feature === "summarize") {
+            promptText = PROMPTS.summarize(transcript);
+        } else if (feature === "notes") {
+            promptText = PROMPTS.notes(transcript);
+        }
 
         const response = await withBackoff(() => client.models.generateContent({
             model: "gemini-2.5-flash",
-            contents: prompt,
+            contents: promptText,
+            config: {
+                systemInstruction: `You are a helpful assistant. Always respond in the language: ${locale}.`
+            }
         }));
 
         let text = response.text || "";

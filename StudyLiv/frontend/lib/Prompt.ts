@@ -41,5 +41,27 @@ export const PROMPTS = {
 
         Transcript:
         ${transcript}
+    `,
+    chat: (message: string, transcript: string) => `
+        You are a helpful educational assistant. Answer the user's question based on the provided lecture transcript. 
+        If the answer is not in the transcript, use your general knowledge but mention it might not have been covered in the lecture.
+        
+        Transcript Context:
+        ${transcript}
+
+        User Question:
+        ${message}
+    `,
+    greeting: () => `
+        Introduce yourself as an AI learning assistant and ask how you can help with today's lecture. 
+        Keep it brief and encouraging.
+    `,
+    translate: (text: string, locale: string) => `
+        You are a professional translator. Translate the following lecture transcript segment into ${locale}.
+        Maintain the original tone, context, and any technical terms that should remain in English (if common in that language).
+        Do not add any intro or outro, just return the translated text.
+
+        Transcript Segment:
+        ${text}
     `
 };

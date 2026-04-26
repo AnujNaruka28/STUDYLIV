@@ -7,7 +7,13 @@ import { useLecture } from '@/lib/context/LectureContext';
 import { featureApi } from '@/lib/AIFeaturesAPI';
 import MarkdownRenderer from '@/app/components/common/MarkdownRenderer';
 
-const Notes = () => {
+import { useLanguage } from '@/lib/context/LanguageContext';
+
+interface NotesProps {
+}
+
+const Notes: React.FC<NotesProps> = () => {
+    const { locale } = useLanguage();
     const { transcript } = useLecture();
     const [notes, setNotes] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
@@ -21,7 +27,7 @@ const Notes = () => {
         setLoading(true);
         setError(null);
         try {
-            const result = await featureApi.getNotes(transcript.text || JSON.stringify(transcript));
+            const result = await featureApi.getNotes(transcript.text || JSON.stringify(transcript), locale);
             if (result.error) throw new Error(result.error);
             setNotes(result.data ?? "");
         } catch (err: any) {
