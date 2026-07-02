@@ -1,0 +1,11 @@
+# nodemodules
+
+node_modules
+
+#env
+
+.env
+
+# build
+
+dist
