@@ -1,4 +1,4 @@
-import DashboardLayout from '@/app/components/cores/DashboardPage/DashboardLayout';
+import DashboardLayout from '@/app/layouts/DashboardLayout';
 import EnrolledCoursesClient from '@/app/components/cores/DashboardPage/StudentPages/CoursesPage/EnrolledCoursesClient';
 import React from 'react'
 

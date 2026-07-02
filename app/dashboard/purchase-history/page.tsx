@@ -1,4 +1,4 @@
-import DashboardLayout from '@/app/components/cores/DashboardPage/DashboardLayout';
+import DashboardLayout from '@/app/layouts/DashboardLayout';
 import React from 'react'
 
 const PurchaseHistory = () => {

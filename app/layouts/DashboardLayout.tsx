@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import Sidebar from './Sidebar';
+import Sidebar from '../components/cores/DashboardPage/Sidebar';
 
 const DashboardLayout = ({children}: {children: React.ReactNode}) => {
     return (

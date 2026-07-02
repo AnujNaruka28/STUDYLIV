@@ -1,4 +1,4 @@
-import DashboardLayout from '@/app/components/cores/DashboardPage/DashboardLayout';
+import DashboardLayout from '@/app/layouts/DashboardLayout';
 import WishlistClient from '@/app/components/cores/DashboardPage/StudentPages/Wishlist/WishlistClient';
 import React from 'react'
 
