@@ -8,7 +8,7 @@
     "module": "CommonJS",           // Use CommonJS for Node.js backend
     "target": "ES2020",             // Modern JS for Node 14+
     "lib": ["ES2020"],              // Include latest ECMAScript features
-    "types": ["node", "express"],   // Adds Node.js & Express typings
+    "types": ["node"],   // Adds Node.js typings (Express types auto-detected from @types/express)
     "allowJs": true,                  // Allow .js files as program inputs
 
     /* Other Outputs */
