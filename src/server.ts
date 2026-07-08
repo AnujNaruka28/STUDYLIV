@@ -139,7 +139,7 @@ app.use('/api/v1/category',categoryRouter);
 app.use('/api/v1/tag',tagRouter);
 
 // 404 handler - must be after all routes
-app.all('*', (req: Request, res: Response) => {
+app.use((req: Request, res: Response) => {
     return notFound(res, `Route ${req.originalUrl} not found`);
 });
 
