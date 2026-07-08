@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
 import helmet from 'helmet';
@@ -6,6 +6,7 @@ import {rateLimit} from 'express-rate-limit';
 import cors from 'cors';
 import dbConnect from './config/database';
 import {ENV as env} from './validations/env.validation';
+import { notFound, error } from './utils/response';
 
 import authRouter from './routes/auth.routes';
 import paymentRouter from './routes/payment.routes';
@@ -23,14 +24,14 @@ import { cloudinaryConnecter } from './config/cloudinary';
 const app = express();
 
 // Trust proxy (needed for accurate client IPs behind proxies/load balancers)
-app.set('trust proxy', 1); // --- need to understand this ---
+// app.set('trust proxy', 1); // --- need to understand this ---
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(fileUpload({ 
     useTempFiles: true, 
-    tempFileDir: process.platform === 'win32' ? './tmp/' : '/tmp/',
-    limits: { fileSize: 800 * 1024 * 1024 }, // 800MB limit
+    tempFileDir: env.NODE_ENV === 'production' ? '/tmp/' : './tmp/',
+    limits: { fileSize: 200 * 1024 * 1024 }, // 200MB limit
     abortOnLimit: true,
     createParentPath: true
 }));
@@ -136,6 +137,28 @@ app.use('/api/v1/subsection',subSectionRouter);
 app.use('/api/v1/contact',contactRouter);
 app.use('/api/v1/category',categoryRouter);
 app.use('/api/v1/tag',tagRouter);
+
+// 404 handler - must be after all routes
+app.all('*', (req: Request, res: Response) => {
+    return notFound(res, `Route ${req.originalUrl} not found`);
+});
+
+// Global error handler - must be last
+app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
+    console.error('Unhandled error:', err);
+    
+    // Log full error in development
+    if (env.NODE_ENV === 'development') {
+        console.error('Error stack:', err.stack);
+    }
+    
+    return error(
+        res,
+        'Internal server error',
+        500,
+        env.NODE_ENV === 'development' ? err.message : undefined
+    );
+});
 
 const PORT = env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const courseZodSchema = z.object({
-    courseName: z.string().min(1, "Course name is required"),
+    courseName: z.string().min(2, "Course name is required"),
     courseDescription: z.string().optional(),
     duration: z.string().optional(),
     instructor: z.string().optional(), // Made optional since it's extracted from JWT token

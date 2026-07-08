@@ -17,7 +17,8 @@ import {
     unauthorized,
     forbidden
 } from '../utils/response';
-// 1) capture payemtn when clicked on pay btn
+import { ENV as env } from '../validations/env.validation';
+// 1) capture payment when clicked on pay btn
 // 2) moment clicked pay btn call /capturePayment API route
 // 3) verify check user, course, create order
 // 4) now razorpay will open a modal ui for payment with qr
@@ -99,7 +100,7 @@ export const capturePayment = async (req: Request, res: Response) => {
 };
 
 export const verifySignature = async (req: Request, res: Response) => {
-    const webhookSecret = process.env.RAZORPAY_WEBHOOK_SECRET || '12345678';
+    const webhookSecret = env.RAZORPAY_WEBHOOK_SECRET || '12345678';
     const sigHeader = req.headers['x-razorpay-signature'];
     const signature = Array.isArray(sigHeader) ? sigHeader[0] : sigHeader;
 
